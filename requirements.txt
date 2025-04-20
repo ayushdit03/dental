@@ -1,0 +1,3 @@
+Flask==2.3.3
+inference==0.9.7
+Werkzeug==2.3.7
