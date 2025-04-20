@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    background-color: gray;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.chat-window {
+    max-width: 600px;
+    margin: auto;
+}
+
+.chat-bubble {
+    background-color: #333;
+    color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.user {
+    text-align: right;
+}
+
+.bot {
+    text-align: left;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
