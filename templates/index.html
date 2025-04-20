@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disease Detector - DPU</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="marquee">Disease Detector</div>
+
+    <div class="chat-window">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="chat-bubble user">📤 Please upload your image:</div>
+            <input type="file" name="image" required>
+            <button type="submit">🔍 Analyze</button>
+        </form>
+
+        {% if image_data %}
+            <div class="chat-bubble user">
+                <strong>Uploaded Image:</strong><br>
+                <img src="data:image/jpeg;base64,{{ image_data }}" width="300">
+            </div>
+        {% endif %}
+
+        {% if prediction %}
+            <div class="chat-bubble bot">
+                🤖 Prediction: <strong>{{ prediction }}</strong>
+            </div>
+
+            {% if result_img and result_img|string and result_img.startswith("data:image") %}
+                <div class="chat-bubble bot">
+                    <img src="{{ result_img }}" width="300">
+                </div>
+            {% endif %}
+
+            <div class="chat-bubble bot">
+                🩺 Treatment Plan: {{ treatment }}
+            </div>
+
+            <div class="chat-bubble bot">
+                📍 Kindly visit <strong>DPU Dental Pimpri</strong> for more clarity on your disease.
+            </div>
+
+            <div class="chat-bubble bot">
+                📅 Book your appointment:
+                <a href="https://dpuhospital.com/request-an-appointment/" target="_blank">🔗 Book Now</a>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
